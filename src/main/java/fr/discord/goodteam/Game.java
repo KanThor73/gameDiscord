@@ -5,6 +5,11 @@ public class Game {
 
         Personnage perso1 = new Personnage("David", 500, 80);
         Personnage perso2 = new Personnage("Goliath", 800, 40);
+        Arme lancePierre = new Arme("Lance-pierre", 85);
+        Arme lanceGeante = new Arme("Lance geante", 40);
+
+        perso2.equiper(lancePierre);
+        perso1.equiper(lanceGeante);
 
         while (perso1.estVivant() && perso2.estVivant()) {
             System.out.println(perso1.getNom() + " attaque " + perso2.getNom());

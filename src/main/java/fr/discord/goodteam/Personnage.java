@@ -1,7 +1,7 @@
 package fr.discord.goodteam;
 
 public class Personnage {
-    private Arme armeEquipe = new Arme();
+    private Arme armeEquipe;
     public String nom;
     private int pv;
     private int atk; // private int atk = armeEquipe.getDegats; ==> quand les armes seront stockees
@@ -46,6 +46,11 @@ public class Personnage {
     // inflige des degats a un autre perso
     public void attaque(Personnage cible) {
         cible.updatePV(cible.armeEquipe.getDegats());
+    }
+
+    // Attribuer une arme a un personnage
+    public void equiper(Arme arme) {
+        armeEquipe = arme;
     }
 
     // Attribution des degats
