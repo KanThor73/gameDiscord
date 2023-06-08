@@ -9,6 +9,7 @@ public class Personnage {
     private boolean statut = true;
 
     public Personnage(String nom, int pv, int atk) {
+        this.nom = nom;
         this.setAtk(atk);
         this.setPv(pv);
     }
@@ -31,16 +32,15 @@ public class Personnage {
 
     // Affiche les stats du perso
     public void afficherStatut() {
-        if (pv <= 200) {
-            System.out.println(nom + " n'a plus que " + pv + " PV... Ca sent le sapin!");
-            System.out.println("Attaque : " + atk);
-        } else if (pv > 200) {
+        if (pv > 200) {
             System.out.println(nom + " n'a plus que " + pv + " PV.");
             System.out.println("Attaque : " + atk);
-        } else {
-
+        } else if (pv <= 100 && pv > 0) {
+            System.out.println(nom + " n'a plus que " + pv + " PV... il commence a trembler des genoux");
+            System.out.println("Attaque : " + atk);
+        } else if (pv < 0) {
+            System.out.println(nom + " n'a plus de genous pour trembler, RIP " + nom);
         }
-
     }
 
     // inflige des degats a un autre perso
