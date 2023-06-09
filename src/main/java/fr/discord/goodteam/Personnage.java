@@ -30,6 +30,10 @@ public class Personnage {
         }
     }
 
+    public boolean getIsFirst() {
+        return this.isFirst;
+    }
+
     // Affiche les stats du perso
     public void afficherStatut() {
         if (pv > 200) {
@@ -45,7 +49,11 @@ public class Personnage {
 
     // inflige des degats a un autre perso
     public void attaque(Personnage cible) {
-        cible.updatePV(cible.armeEquipe.getDegats());
+        if (cible.armeEquipe != null) {
+            cible.updatePV(cible.armeEquipe.getDegats());
+        } else {
+            System.out.println(this.nom + "n'a pas d'arme equipee, il ne peux pas infliger de degat a :" + cible);
+        }
     }
 
     // Attribuer une arme a un personnage
