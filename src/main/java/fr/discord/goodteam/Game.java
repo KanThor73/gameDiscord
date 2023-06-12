@@ -2,6 +2,7 @@ package fr.discord.goodteam;
 
 import fr.discord.goodteam.Personnage;
 import fr.discord.goodteam.Arme;
+import fr.discord.goodteam.PotionVie;
 
 public class Game {
     public static void main(String[] args) {
@@ -11,14 +12,14 @@ public class Game {
         Arme lancePierre = new Arme("Lance-pierre", "Petit mais costaud", 85);
         Arme lanceGeante = new Arme("Lance geante", 40);
 
-        perso2.equiper(lancePierre);
-        perso1.equiper(lanceGeante);
+        perso1.equiper(lancePierre);
+        perso2.equiper(lanceGeante);
 
         perso1.afficherInventaire();
-        System.out.println("");
+        System.out.println();
 
         perso2.afficherInventaire();
-        System.out.println("");
+        System.out.println();
 
         while (perso1.estVivant() && perso2.estVivant()) {
             perso1.attaque(perso2);
@@ -31,6 +32,20 @@ public class Game {
 
             System.out.println();
         }
+
+        try {
+            perso2.boire(new PotionVie(100));
+        } catch(Exception e) { // TODO séparer les exceptions pour les gérer dans l'inventaire
+            System.out.println("Exception : " + e.getMessage());
+        }
+        try {
+            perso1.boire(new PotionVie(100));
+        } catch(Exception e) { // TODO séparer les exceptions pour les gérer dans l'inventaire
+            System.out.println("Exception : " + e.getMessage());
+        }
+
+        perso1.afficherStatut();
+        System.out.println();
 
         if (perso1.estVivant()) {
             System.out.println(perso1.getNom() + " a vaincu " + perso2.getNom());

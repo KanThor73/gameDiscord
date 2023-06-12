@@ -13,11 +13,13 @@ public class Arme extends Objet {
     public Arme(String nom, int degats) {
         super(nom);
         this.degats = degats;
+        // vérifier que degats soient positifs ? ou différencier armes de frappes et armes de soin ?
     }
 
     public Arme(String nom, String description, int degats) {
         super(nom, description);
         this.degats = degats;
+        // vérifier que degats soient positifs ? ou différencier armes de frappes et armes de soin ?
     }
 
     public int getDegats() {
