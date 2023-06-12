@@ -1,11 +1,14 @@
 package fr.discord.goodteam;
 
+import fr.discord.goodteam.Personnage;
+import fr.discord.goodteam.Arme;
+
 public class Game {
     public static void main(String[] args) {
 
         Personnage perso1 = new Personnage("David", 500, 80);
         Personnage perso2 = new Personnage("Goliath", 800, 40);
-        Arme lancePierre = new Arme("Lance-pierre", 85);
+        Arme lancePierre = new Arme("Lance-pierre", "Petit mais costaud", 85);
         Arme lanceGeante = new Arme("Lance geante", 40);
 
         perso2.equiper(lancePierre);

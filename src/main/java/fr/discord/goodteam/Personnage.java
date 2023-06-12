@@ -1,5 +1,7 @@
 package fr.discord.goodteam;
 
+import fr.discord.goodteam.Arme;
+
 public class Personnage {
     private Arme armeEquipe;
     public String nom;
@@ -34,12 +36,14 @@ public class Personnage {
     public void afficherStatut() {
         if (pv > 200) {
             System.out.println(nom + " n'a plus que " + pv + " PV.");
-            System.out.println("Attaque : " + atk);
         } else if (pv <= 100 && pv > 0) {
             System.out.println(nom + " n'a plus que " + pv + " PV... il commence a trembler des genoux");
-            System.out.println("Attaque : " + atk);
         } else if (pv < 0) {
             System.out.println(nom + " n'a plus de genous pour trembler, RIP " + nom);
+        }
+
+        if (armeEquipe != null) {
+            armeEquipe.afficherStatut();
         }
     }
 

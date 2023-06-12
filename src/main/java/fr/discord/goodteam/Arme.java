@@ -1,19 +1,32 @@
 package fr.discord.goodteam;
 
-public class Arme {
+import fr.discord.goodteam.Objet;
+
+public class Arme extends Objet {
     private int degats;
-    private String nom;
+
+    public Arme() {
+        super("Branche ridicule", "Un simple bout de bois ramassé au bord du chemin");
+        degats = 1;
+    }
 
     public Arme(String nom, int degats) {
-        this.nom = nom;
+        super(nom);
         this.degats = degats;
     }
 
-    public String getNom() {
-        return this.nom;
+    public Arme(String nom, String description, int degats) {
+        super(nom, description);
+        this.degats = degats;
     }
 
     public int getDegats() {
         return this.degats;
+    }
+
+    @Override
+    public void afficherStatut() {
+        super.afficherStatut();
+        System.out.println("Degats : " + degats);
     }
 }
