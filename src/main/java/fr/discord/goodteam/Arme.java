@@ -7,7 +7,7 @@ public class Arme extends Objet {
 
     public Arme() {
         super("Branche ridicule", "Un simple bout de bois ramassé au bord du chemin");
-        degats = 1;
+        degats = 2;
     }
 
     public Arme(String nom, int degats) {

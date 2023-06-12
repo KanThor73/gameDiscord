@@ -3,67 +3,41 @@ package fr.discord.goodteam;
 import fr.discord.goodteam.Arme;
 
 public class Personnage {
-    private Arme armeEquipe;
     public String nom;
     private int pv;
-    private int atk; // private int atk = armeEquipe.getDegats; ==> quand les armes seront stockees
-    private boolean isFirst = (pv == 500); // avantage si pv min ==> attaque en premier
-    private boolean statut = true;
+    private int pvMax;
+    private Arme arme;
 
-    public Personnage(String nom, int pv, int atk) {
+    public Personnage(String nom, int pv) {
+        setup(nom, pv);
+        arme = new Arme();
+    }
+
+    public Personnage(String nom, int pv, Arme arme) {
+        setup(nom, pv);
+        this.arme = arme;
+    }
+
+    private void setup(String nom, int pv) {
         this.nom = nom;
-        this.setAtk(atk);
-        this.setPv(pv);
-    }
-
-    private void setPv(int pv) {
-        if (this.pv >= 500 || this.pv <= 800)
-            this.pv = pv;
-        else {
-            System.out.println("Valeurs des PV incorrect, a set entre 500 et 800.");
-        }
-    }
-
-    private void setAtk(int atk) {
-        if (this.atk >= 500 || this.atk <= 800) {
-            this.atk = atk;
-        } else {
-            System.out.println("Valeurs de l'attaque incorrect, a set entre 80 et 120.");
-        }
-    }
-
-    // Affiche les stats du perso
-    public void afficherStatut() {
-        if (pv > 200) {
-            System.out.println(nom + " n'a plus que " + pv + " PV.");
-        } else if (pv <= 100 && pv > 0) {
-            System.out.println(nom + " n'a plus que " + pv + " PV... il commence a trembler des genoux");
-        } else if (pv < 0) {
-            System.out.println(nom + " n'a plus de genous pour trembler, RIP " + nom);
-        }
-
-        if (armeEquipe != null) {
-            armeEquipe.afficherStatut();
-        }
+        this.pv = pv;
+        pvMax = pv;
     }
 
     // inflige des degats a un autre perso
     public void attaque(Personnage cible) {
-        cible.updatePV(cible.armeEquipe.getDegats());
+        if(estVivant()) {
+            System.out.println(nom + " attaque " + cible.getNom());
+            cible.updatePV(cible.getDegats());
+        }
+        else {
+            System.out.println(nom + " est à terre et refuse de combattre");
+        }
     }
 
     // Attribuer une arme a un personnage
     public void equiper(Arme arme) {
-        armeEquipe = arme;
-    }
-
-    // Attribution des degats
-
-    public void updatePV(int degats) {
-        this.pv = pv - degats;
-        if (pv <= 0) {
-            statut = false;
-        }
+        this.arme = arme;
     }
 
     // Recupere le nom du perso
@@ -73,11 +47,52 @@ public class Personnage {
 
     // Indique si le perso est vivant
     public boolean estVivant() {
-        return statut;
+        return (pv > 0);
     }
 
-    public int getDegatArme() {
-        return armeEquipe.getDegats();
+    // Indique si le perso a tous ses pv
+    public boolean estFullVie() {
+        return (pv == pvMax);
     }
 
+    // Retourne les degats occasionnés par l'arme du joueur
+    public int getDegats() {
+        if (arme != null) {
+            return arme.getDegats();
+        }
+        else {
+            return 1;
+        }
+    }
+
+    // Attribution des degats
+    private void updatePV(int degats) {
+        this.pv = pv - degats;
+        if (pv < 0) {
+            pv = 0;
+        }
+        if (pv > pvMax) {
+            pv = pvMax;
+        }
+    }
+
+    // Affiche les stats du perso
+    public void afficherStatut() {
+        if (pv > pvMax/4) {
+            System.out.println(nom + " n'a plus que " + pv + " PV.");
+        } else if (pv <= pvMax/4 && pv > 0) {
+            System.out.println(nom + " n'a plus que " + pv + " PV... il commence a trembler des genoux");
+        } else if (pv <= 0) {
+            System.out.println(nom + " n'a plus de genous pour trembler, RIP " + nom);
+        }
+    }
+
+    // affiche les objets portés par le joueur
+    public void afficherInventaire() {
+        System.out.println("Inventaire de " + nom + " :");
+
+        if (arme != null) {
+            arme.afficherStatut();
+        }
+    }
 }
