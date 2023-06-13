@@ -1,6 +1,7 @@
 package fr.discord.goodteam;
 
 import fr.discord.goodteam.Arme;
+import fr.discord.goodteam.PotionVie;
 
 public class Personnage {
     public String nom;
@@ -26,9 +27,9 @@ public class Personnage {
 
     // inflige des degats a un autre perso
     public void attaque(Personnage cible) {
-        if(estVivant()) {
+        if (estVivant()) {
             System.out.println(nom + " attaque " + cible.getNom());
-            cible.updatePV(cible.getDegats());
+            cible.updatePV(getDegats());
         }
         else {
             System.out.println(nom + " est à terre et refuse de combattre");
@@ -38,6 +39,17 @@ public class Personnage {
     // Attribuer une arme a un personnage
     public void equiper(Arme arme) {
         this.arme = arme;
+    }
+
+    // Boire une potion de vie
+    public void boire(PotionVie pot) throws Exception {
+        if (estVivant()) {
+            System.out.println(nom + " boit une potion de vie");
+            updatePV(-pot.use());
+        }
+        else {
+            System.out.println(nom + " est à terre et refuse de boire");
+        }
     }
 
     // Recupere le nom du perso
@@ -78,12 +90,13 @@ public class Personnage {
 
     // Affiche les stats du perso
     public void afficherStatut() {
+        System.out.print(nom + " a " + pv + "/" + pvMax + " PV");
         if (pv > pvMax/4) {
-            System.out.println(nom + " n'a plus que " + pv + " PV.");
+            System.out.println("");
         } else if (pv <= pvMax/4 && pv > 0) {
-            System.out.println(nom + " n'a plus que " + pv + " PV... il commence a trembler des genoux");
+            System.out.println("... il commence a trembler des genoux");
         } else if (pv <= 0) {
-            System.out.println(nom + " n'a plus de genous pour trembler, RIP " + nom);
+            System.out.println("\nIl n'a plus de genoux pour trembler, RIP " + nom);
         }
     }
 
