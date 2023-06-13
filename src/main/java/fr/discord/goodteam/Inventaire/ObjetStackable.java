@@ -1,5 +1,7 @@
 package fr.discord.goodteam.Inventaire;
 
+import fr.discord.goodteam.Inventaire.Objet;
+
 public class ObjetStackable extends Objet {
     private static final int MAX_STK = 20;
     private int stack;

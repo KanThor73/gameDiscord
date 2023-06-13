@@ -1,5 +1,7 @@
 package fr.discord.goodteam.Inventaire;
 
+import fr.discord.goodteam.Inventaire.Objet;
+
 public class PotionVie extends ObjetStackable { // on peut envisager une classe générique Potion, si on souhaite ajouter
                                                 // des Potions de mana ou autres
     private int gainPv;

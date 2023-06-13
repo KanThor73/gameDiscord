@@ -1,6 +1,8 @@
 package fr.discord.goodteam.Personnages;
 
+import fr.discord.goodteam.Personnages.Personnage;
 import fr.discord.goodteam.Armes.Arme;
+import fr.discord.goodteam.Armes.Glaive;
 
 public class Guerrier extends Personnage {
 
@@ -8,13 +10,11 @@ public class Guerrier extends Personnage {
     private Glaive glaive;
 
     public Guerrier(String nom, int pv) {
-        super(nom, pv);
-        arme = new Arme();
+        super(nom, pv, new Arme());
     }
 
     public Guerrier(String nom, int pv, Arme arme) {
         super(nom, pv, arme);
-        this.arme = arme;
     }
 
     // capacite speciale

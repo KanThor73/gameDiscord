@@ -108,7 +108,7 @@ public class Personnage {
     }
 
     // Ajoute un effet d'alteration
-    public putAlter(Personnage cyble){
+    public void putAlter(Personnage cyble){
         if (alter != null) {
             
         }
