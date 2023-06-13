@@ -35,12 +35,12 @@ public class Game {
 
         try {
             perso2.boire(new PotionVie(100));
-        } catch(Exception e) { // TODO séparer les exceptions pour les gérer dans l'inventaire
+        } catch (Exception e) { // TODO séparer les exceptions pour les gérer dans l'inventaire
             System.out.println("Exception : " + e.getMessage());
         }
         try {
             perso1.boire(new PotionVie(100));
-        } catch(Exception e) { // TODO séparer les exceptions pour les gérer dans l'inventaire
+        } catch (Exception e) { // TODO séparer les exceptions pour les gérer dans l'inventaire
             System.out.println("Exception : " + e.getMessage());
         }
 

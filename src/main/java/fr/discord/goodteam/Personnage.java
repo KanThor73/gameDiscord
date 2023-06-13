@@ -30,8 +30,7 @@ public class Personnage {
         if (estVivant()) {
             System.out.println(nom + " attaque " + cible.getNom());
             cible.updatePV(getDegats());
-        }
-        else {
+        } else {
             System.out.println(nom + " est à terre et refuse de combattre");
         }
     }
@@ -46,8 +45,7 @@ public class Personnage {
         if (estVivant()) {
             System.out.println(nom + " boit une potion de vie");
             updatePV(-pot.use());
-        }
-        else {
+        } else {
             System.out.println(nom + " est à terre et refuse de boire");
         }
     }
@@ -71,8 +69,7 @@ public class Personnage {
     public int getDegats() {
         if (arme != null) {
             return arme.getDegats();
-        }
-        else {
+        } else {
             return 1;
         }
     }
@@ -91,9 +88,9 @@ public class Personnage {
     // Affiche les stats du perso
     public void afficherStatut() {
         System.out.print(nom + " a " + pv + "/" + pvMax + " PV");
-        if (pv > pvMax/4) {
+        if (pv > pvMax / 4) {
             System.out.println("");
-        } else if (pv <= pvMax/4 && pv > 0) {
+        } else if (pv <= pvMax / 4 && pv > 0) {
             System.out.println("... il commence a trembler des genoux");
         } else if (pv <= 0) {
             System.out.println("\nIl n'a plus de genoux pour trembler, RIP " + nom);
