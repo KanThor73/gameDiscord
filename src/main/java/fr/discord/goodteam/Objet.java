@@ -4,12 +4,14 @@ public class Objet {
     private String nom;
     private String description;
 
-    /*private Objet() {
-        // Attention, private, tout objet doit avoir un nom
-
-        nom = "Insecte";
-        description = "A kind of bug";
-    }*/
+    /*
+     * private Objet() {
+     * // Attention, private, tout objet doit avoir un nom
+     * 
+     * nom = "Insecte";
+     * description = "A kind of bug";
+     * }
+     */
 
     public Objet(String nom) {
         this.nom = nom;
