@@ -1,13 +1,14 @@
-package fr.discord.goodteam;
+package fr.discord.goodteam.Personnages;
 
-import fr.discord.goodteam.Arme;
-import fr.discord.goodteam.PotionVie;
+import fr.discord.goodteam.Armes.Arme;
+import fr.discord.goodteam.Inventaire.PotionVie;
 
 public class Personnage {
     public String nom;
     private int pv;
     private int pvMax;
     private Arme arme;
+    private String alter;
 
     public Personnage(String nom, int pv) {
         setup(nom, pv);
@@ -103,6 +104,13 @@ public class Personnage {
 
         if (arme != null) {
             arme.afficherStatut();
+        }
+    }
+
+    // Ajoute un effet d'alteration
+    public putAlter(Personnage cyble){
+        if (alter != null) {
+            
         }
     }
 }

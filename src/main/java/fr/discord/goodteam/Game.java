@@ -1,8 +1,8 @@
 package fr.discord.goodteam;
 
-import fr.discord.goodteam.Personnage;
-import fr.discord.goodteam.Arme;
-import fr.discord.goodteam.PotionVie;
+import fr.discord.goodteam.Armes.Arme;
+import fr.discord.goodteam.Inventaire.PotionVie;
+import fr.discord.goodteam.Personnages.Personnage;
 
 public class Game {
     public static void main(String[] args) {

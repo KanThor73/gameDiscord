@@ -1,6 +1,6 @@
-package fr.discord.goodteam;
+package fr.discord.goodteam.Armes;
 
-import fr.discord.goodteam.Objet;
+import fr.discord.goodteam.Inventaire.Objet;
 
 public class Arme extends Objet {
     private int degats;

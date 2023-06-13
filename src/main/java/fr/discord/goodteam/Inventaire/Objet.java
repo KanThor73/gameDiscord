@@ -1,4 +1,4 @@
-package fr.discord.goodteam;
+package fr.discord.goodteam.Inventaire;
 
 public class Objet {
     private String nom;

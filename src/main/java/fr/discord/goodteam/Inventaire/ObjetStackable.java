@@ -1,6 +1,4 @@
-package fr.discord.goodteam;
-
-import fr.discord.goodteam.Objet;
+package fr.discord.goodteam.Inventaire;
 
 public class ObjetStackable extends Objet {
     private static final int MAX_STK = 20;
@@ -32,7 +30,8 @@ public class ObjetStackable extends Objet {
         return stack;
     }
 
-    // permet de modifier la quantité d'objet, passer un argument négatif pour un retrait
+    // permet de modifier la quantité d'objet, passer un argument négatif pour un
+    // retrait
     // on peut imaginer d'éviter la vérification et de retourner la différence
     public void gain(int val) throws Exception {
         stack += val;
