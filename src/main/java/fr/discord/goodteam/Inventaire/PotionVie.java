@@ -3,29 +3,29 @@ package fr.discord.goodteam.Inventaire;
 import fr.discord.goodteam.Inventaire.Objet;
 
 public class PotionVie extends ObjetStackable { // on peut envisager une classe générique Potion, si on souhaite ajouter
-                                                // des Potions de mana ou autres
-    private int gainPv;
+												// des Potions de mana ou autres
+	private int gainPv;
 
-    public PotionVie(int gainPv) throws Exception {
-        super("Potion de vie", "Rend " + gainPv + " points de vie");
-        setup(gainPv);
-    }
+	public PotionVie(int gainPv) {
+		super("Potion de vie", "Rend " + gainPv + " points de vie");
+		setup(gainPv);
+	}
 
-    public PotionVie(int gainPv, int stack) throws Exception {
-        super("Potion de vie", "Rend " + gainPv + " points de vie", stack);
-        setup(gainPv);
-    }
+	public PotionVie(int gainPv, int stack) throws Exception {
+		super("Potion de vie", "Rend " + gainPv + " points de vie", stack);
+		setup(gainPv);
+	}
 
-    private void setup(int gainPv) throws Exception {
-        if (gainPv <= 0) {
-            throw new Exception("Une potion de vie doit rendre des points de vie");
-        }
-        this.gainPv = gainPv;
-    }
+	private void setup(int gainPv) {
+		if (gainPv <= 0) {
+			throw new Error("Une potion de vie doit rendre des points de vie : " + gainPv);
+		}
+		this.gainPv = gainPv;
+	}
 
-    public int use() throws Exception {
-        gain(-1);
-        verifStack(this);
-        return gainPv;
-    }
+	public int use() throws Exception {
+		verifStack(this);
+		gain(-1);
+		return gainPv;
+	}
 }
